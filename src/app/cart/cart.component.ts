@@ -19,15 +19,26 @@ export class CartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.total()
     setTimeout(()=>{this.timer.emit()}, 5000);
   }
 
   total(){
-    this.sum=0
+    let sum=0
     this.cartItems.forEach(element => {
-      this.sum = this.sum + (element.itemCost*element.itemQuantity);
+      sum = sum + (element.itemCost*element.itemQuantity);
     });
-    return this.sum
+    this.sum = sum
+  }
+
+  
+
+  get totals(){
+    let sum=0
+    this.cartItems.forEach(element => {
+      sum = sum + (element.itemCost*element.itemQuantity);
+    });
+    return sum
   }
 
 }
