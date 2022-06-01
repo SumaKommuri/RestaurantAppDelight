@@ -1,0 +1,15 @@
+<table>
+    <thead>
+        <td>Item Name</td>
+        <td>Item Quantity</td>
+        <td>Item Cost</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of cartItems">
+            <td>{{item.itemName}}</td>
+            <td>{{item.itemQuantity}}</td>
+            <td>${{item.itemCost}}</td>
+        </tr>
+    </tbody>
+</table>
+<p>Total: {{total()}}</p>

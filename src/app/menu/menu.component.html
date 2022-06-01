@@ -1,0 +1,12 @@
+<h1>Delight Menu</h1>
+<div>
+    <table>
+        <tr *ngFor="let item of itemList">
+            <td>{{item.itemName}}</td>
+            <td>${{item.itemCost}}</td>
+            <td><input type="number" [(ngModel)]="item.itemQuantity"></td>
+            <button (click)="updateCart()">Add to Cart</button>
+        </tr>
+    </table>
+    <button (click)="goToCheckout()">Checkout</button>
+</div>
