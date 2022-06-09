@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
   itemList: any[] = [{itemName:"Veg Biryani",itemCost: 20, itemQuantity: null},
                     {itemName:"Veg Manchuria",itemCost: 20, itemQuantity: null},
                     {itemName:"Veg Pulav",itemCost: 20, itemQuantity: null}]
+  enableCheckout: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -23,6 +24,7 @@ export class MenuComponent implements OnInit {
   }
 
   updateCart(){
+    this.enableCheckout = true;
     this.selectedItems = []
     for(let item of this.itemList){
       if(item.itemQuantity){

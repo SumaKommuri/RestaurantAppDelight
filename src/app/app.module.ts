@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
+
 
 
 @NgModule({
@@ -20,8 +20,7 @@ import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    BsDropdownModule.forRoot()
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

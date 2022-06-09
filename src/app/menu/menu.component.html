@@ -1,12 +1,19 @@
 <h1>Delight Menu</h1>
-<div>
-    <table>
-        <tr *ngFor="let item of itemList">
-            <td>{{item.itemName}}</td>
-            <td>${{item.itemCost}}</td>
-            <td><input type="number" [(ngModel)]="item.itemQuantity"></td>
-            <button (click)="updateCart()">Add to Cart</button>
-        </tr>
-    </table>
-    <button (click)="goToCheckout()">Checkout</button>
+<div class="row">
+    <div class="col">
+        <table>
+            <tr *ngFor="let item of itemList">
+                <td>{{item.itemName}}</td>
+                <td>${{item.itemCost}}</td>
+                <td><input type="number" [(ngModel)]="item.itemQuantity"></td>
+                <button [disabled]="!(item.itemQuantity > 0)" (click)="updateCart()">Add to Cart</button>
+            </tr>
+        </table>
+        <!-- <button (click)="goToCheckout()" [disabled]="!enableCheckout">Checkout</button> -->
+    </div>
+    <div class="col">
+        <app-cart [cartItems]="selectedItems"></app-cart>
+        <button (click)="goToCheckout()" [disabled]="!enableCheckout">Checkout</button>
+    </div>
 </div>
+
