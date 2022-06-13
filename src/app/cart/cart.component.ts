@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CartService } from './cart.service';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CartComponent implements OnInit {
 
   sum: any = 0
+  nations: any[] = []
 
   @Input()
   cartItems: any[]=[]
@@ -16,9 +18,19 @@ export class CartComponent implements OnInit {
   @Output()
   timer = new EventEmitter()
 
-  constructor() { }
+  constructor(private cartService:CartService) { 
+   this.getCountries();
+  }
+
+  getCountries(){
+    this.cartService.getData().subscribe(data=> {
+      console.log(data)
+      this.nations = data.data;
+    })
+  }
 
   ngOnInit(): void {
+    
     this.total()
     setTimeout(()=>{this.timer.emit()}, 5000);
   }
